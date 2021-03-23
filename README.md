@@ -29,6 +29,12 @@ Commands used:
 - docker run -p 8080:8080 amigoscode/spring-react-fullstack 
 
 
+Commands used: 
+
+./mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=2
+./mvnw clean install -P build-frontend -P jib-push-to-local -Dapp.image.tag=latest
+
+
 
 
 
