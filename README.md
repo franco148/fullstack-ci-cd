@@ -17,3 +17,31 @@ To view local images run
 
 To view running containers
 - docker ps 
+
+
+Commands used: 
+- docker login 
+- docker pull 
+- docker rm -f id 
+- ./mvnw clean install jib:build -Djib.to.image=amigoscode/spring-react-fullstack:latest 
+- ./mvnw clean install jib:build -Djib.to.image=amigoscode/spring-react-fullstack:latest -D jib.to.auth.username=amigoscode -Djib.to.auth.password=yourpassword 
+- docker pull amigoscode/spring-react-fullstack:latest 
+- docker run -p 8080:8080 amigoscode/spring-react-fullstack 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
