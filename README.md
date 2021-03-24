@@ -35,8 +35,17 @@ Commands used:
 ./mvnw clean install -P build-frontend -P jib-push-to-local -Dapp.image.tag=latest
 
 
+Postgres in Docker:
+- https://hub.docker.com/_/postgres
 
+- docker network create db
+- Create a folder for the container volume, and go in it.
 
+- 1. create a folder to mount /var/lib/postgresql/data
+- 2. cd into that folder
+- 3. docker run --name db -p 5432:5432 --network=db -v "$PWD:/var/lib/postgresql/data" -e POSTGRES_PASSWORD=password -d postgres:alpine
+
+- docker run -it --rm --network=db postgres:alpine psql -h db -U postgres
 
 
 
