@@ -47,6 +47,8 @@ Postgres in Docker:
 
 - docker run -it --rm --network=db postgres:alpine psql -h db -U postgres
 
+- https://www.mockaroo.com/
+
 
 
 
