@@ -17,4 +17,9 @@ public class StudentService {
     public List<Student> getAll() {
         return this.repository.findAll();
     }
+
+    public void addStudent(Student student) {
+        // check if email is taken
+        repository.save(student);
+    }
 }
