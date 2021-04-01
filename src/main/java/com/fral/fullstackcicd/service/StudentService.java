@@ -22,4 +22,9 @@ public class StudentService {
         // check if email is taken
         repository.save(student);
     }
+
+    public void deleteStudent(Long studentId) {
+        // check if student exists
+        repository.deleteById(studentId);
+    }
 }

@@ -17,12 +17,17 @@ public class StudentsController {
 
     @GetMapping
     public List<Student> getAllStudents() {
-
         return service.getAll();
     }
 
     @PostMapping
     public void addStudent(@RequestBody Student student) {
         service.addStudent(student);
+    }
+
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(
+            @PathVariable("studentId") Long studentId) {
+        service.deleteStudent(studentId);
     }
 }
