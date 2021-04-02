@@ -24,10 +24,10 @@ Commands used:
 - docker login 
 - docker pull 
 - docker rm -f id 
-- ./mvnw clean install jib:build -Djib.to.image=amigoscode/spring-react-fullstack:latest 
-- ./mvnw clean install jib:build -Djib.to.image=amigoscode/spring-react-fullstack:latest -D jib.to.auth.username=amigoscode -Djib.to.auth.password=yourpassword 
-- docker pull amigoscode/spring-react-fullstack:latest 
-- docker run -p 8080:8080 amigoscode/spring-react-fullstack 
+- ./mvnw clean install jib:build -Djib.to.image=franco148/fullstack-ci-cd:v1.0 
+- ./mvnw clean install jib:build -Djib.to.image=franco148/fullstack-ci-cd:latest -D jib.to.auth.username=franco148 -Djib.to.auth.password=yourpassword 
+- docker pull franco148/fullstack-ci-cd:latest 
+- docker run -p 8080:8080 --net=host franco148/fullstack-ci-cd 
 
 
 Commands used: 
