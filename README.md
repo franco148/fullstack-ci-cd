@@ -31,7 +31,7 @@ Commands used:
 
 
 Commands used: 
-
+./mvnw help:active-profiles
 ./mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=2
 ./mvnw clean install -P build-frontend -P jib-push-to-local -Dapp.image.tag=latest
 

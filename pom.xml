@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <app.image.name>fullstack-ci-cd-app</app.image.name>
+        <app.image.name>fullstack-ci-cd</app.image.name>
         <app.image.tag />
     </properties>
 
