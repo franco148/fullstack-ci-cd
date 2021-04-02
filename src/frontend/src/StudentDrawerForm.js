@@ -24,11 +24,17 @@ function StudentDrawerForm({showDrawer, setShowDrawer, fetchStudents}) {
                     `${student.name} was added to the system`
                 )
                 fetchStudents();
-            }).catch(err => {
-            console.log(err)
-        }).finally(() => {
-            setSubmitting(false);
-        })
+            }).catch(error => {
+                error.response.json().then(res => {
+                    errorNotification
+                    (
+                        "There was an issue",
+                        `${res.message} [Status Code: ${res.status}]`
+                    );
+                });
+            }).finally(() => {
+                setSubmitting(false);
+            })
     };
 
     const onFinishFailed = errorInfo => {

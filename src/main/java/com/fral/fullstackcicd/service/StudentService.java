@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -20,11 +21,19 @@ public class StudentService {
 
     public void addStudent(Student student) {
         // check if email is taken
+        if (repository.existsByEmail(student.getEmail())) {
+            throw new IllegalArgumentException("The student cannot be stored. The email is already taken.");
+        }
+
         repository.save(student);
     }
 
     public void deleteStudent(Long studentId) {
         // check if student exists
+        if (!repository.existsById(studentId)) {
+            throw new IllegalArgumentException("Student with id " + studentId + " does not exist. Operation can not be completed");
+        }
+
         repository.deleteById(studentId);
     }
 }
