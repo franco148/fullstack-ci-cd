@@ -8,6 +8,7 @@ Windows
 
 To run container
 - docker run --name fullstack -p 8080:8080 fullstack:v1
+- docker run --name fullstack -p 8080:8080 --net=host fullstack-ci-cd:v1 (This worked in ubuntu)
 
 To delete container with name fullstack
 - docker rm -f fullstack 
