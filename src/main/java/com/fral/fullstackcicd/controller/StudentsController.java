@@ -5,6 +5,7 @@ import com.fral.fullstackcicd.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -21,7 +22,7 @@ public class StudentsController {
     }
 
     @PostMapping
-    public void addStudent(@RequestBody Student student) {
+    public void addStudent(@Valid @RequestBody Student student) {
         service.addStudent(student);
     }
 
