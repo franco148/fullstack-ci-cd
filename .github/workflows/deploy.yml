@@ -2,24 +2,24 @@ name: CICD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
   workflow_dispatch:
 
 env:
   # Postgres
   POSTGRESQL_VERSION: 13.1
-  POSTGRESQL_DB: amigoscode
+  POSTGRESQL_DB: fullstackdb
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: password
   # Java
-  JAVA_VERSION: 1.15
+  JAVA_VERSION: 1.11
   # DockerHub
-  DOCKER_HUB_USERNAME: amigoscode
+  DOCKER_HUB_USERNAME: franco148
   # AWS & Elastic Bean Stalk
-  AWS_REGION: eu-west-1
-  EB_ENVIRONMENT_NAME: Springbootreactfullstack-env
-  EB_APPLICATION_NAME: springboot-react-fullstack
+  AWS_REGION: sa-east-1
+  EB_ENVIRONMENT_NAME: Fullstackcicdapp-env
+  EB_APPLICATION_NAME: fullstack-ci-cd-app
   EB_DEPLOYMENT_PACKAGE: elasticbeanstalk/docker-compose.yml
 
 jobs:
@@ -71,7 +71,7 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-          text: ':white_check_mark: pushed amigoscode/springboot-react-fullstack:${{steps.build-number.outputs.BUILD_NUMBER}} to docker hub... https://hub.docker.com/repository/docker/amigoscode/springboot-react-fullstack'
+          text: ':white_check_mark: pushed franco148/fullstack-ci-cd:${{steps.build-number.outputs.BUILD_NUMBER}} to docker hub... https://hub.docker.com/repository/docker/franco148/fullstack-ci-cd'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Update and commit app version in docker-compose.yaml
