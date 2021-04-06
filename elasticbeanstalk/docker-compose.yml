@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   backend:
-    image: "franco148/fullstack-ci-cd:6.4.2021.0.9.39"
+    image: "franco148/fullstack-ci-cd:6.4.2021.0.57.15"
     ports:
       - "80:8080"
     restart: "always"
