@@ -35,7 +35,7 @@ Commands used:
 ./mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=2
 ./mvnw clean install -P build-frontend -P jib-push-to-local -Dapp.image.tag=latest
 
-- docker run --rm -p 8080:8080 franco148/fullstack-ci-cd
+- docker run --rm -p 8080:8080 franco148/fullstack-ci-cd // This by default is going to execute the LATEST version of the image.
 
 
 Postgres in Docker:
