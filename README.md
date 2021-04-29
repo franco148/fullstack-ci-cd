@@ -63,6 +63,7 @@ Connecting to the remote AWS RDS
 - docker run -it --rm postgres:alpine psql -h <rds-url-db> -U <database-user> -d postgres
 
 
+
 Deploying APP
 - Mac
   - ./mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=3
