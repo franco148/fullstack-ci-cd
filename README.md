@@ -38,6 +38,7 @@ Commands used:
 - docker run --rm -p 8080:8080 franco148/fullstack-ci-cd // This by default is going to execute the LATEST version of the image.
 
 
+
 Postgres in Docker:
 - https://hub.docker.com/_/postgres
 
