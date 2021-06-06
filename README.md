@@ -50,7 +50,7 @@ Postgres in Docker:
 
 - 1. create a folder to mount /var/lib/postgresql/data
 - 2. cd into that folder
-- 3. docker run --name db -p 5432:5432 --network=db -v "$PWD:/var/lib/postgresql/data" -e POSTGRES_PASSWORD=password -d postgres:alpine
+- 3. `docker run --name db -p 5432:5432 --network=db -v "$PWD:/var/lib/postgresql/data" -e POSTGRES_PASSWORD=password -d postgres:alpine`
 
 - docker run -it --rm --network=db postgres:alpine psql -h db -U postgres
 
