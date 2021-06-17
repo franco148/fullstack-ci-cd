@@ -43,9 +43,9 @@ Postgres in Docker:
 
 - `docker run -it --rm postgres:alpine psql -h aa9320n4muma7h.celswdmxhcr1.eu-west-1.rds.amazonaws.com -U amigoscode -d postgres`
 
-- https://hub.docker.com/_/postgres
+- `https://hub.docker.com/_/postgres`
 
-- docker network create db
+- `docker network create db`
 - Create a folder for the container volume, and go in it.
 
 - 1. create a folder to mount /var/lib/postgresql/data
