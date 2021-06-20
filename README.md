@@ -11,13 +11,13 @@ To run container
 - `docker run --name fullstack -p 8080:8080 --net=host fullstack-ci-cd:v1 (This worked in ubuntu)`
 
 To delete container with name fullstack
-- docker rm -f fullstack 
+- `docker rm -f fullstack` 
 
 To view local images run
-- docker image ls
+- `docker image ls`
 
 To view running containers
-- docker ps 
+- `docker ps` 
 
 
 Commands used: 
