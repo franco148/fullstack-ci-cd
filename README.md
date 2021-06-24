@@ -64,7 +64,7 @@ Executing the correct profile.
 - `java -jar -Dspring.profiles.active=dev target/fullstack-ci-cd-0.0.1-SNAPSHOT.jar`
 
 Connecting to the remote AWS RDS
-- docker run -it --rm postgres:alpine psql -h <rds-url-db> -U <database-user> -d postgres
+- `docker run -it --rm postgres:alpine psql -h <rds-url-db> -U <database-user> -d postgres`
 
 
 
