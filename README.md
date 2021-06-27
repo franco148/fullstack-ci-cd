@@ -73,7 +73,7 @@ Deploying APP
   - `./mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=3`
 
 - Windows
-  - mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=3
+  - `mvnw clean install -P build-frontend -P jib-push-to-dockerhub -Dapp.image.tag=3`
 
 
 
