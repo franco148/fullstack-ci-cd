@@ -57,6 +57,7 @@ Postgres in Docker:
 - https://www.mockaroo.com/
 
 
+
 One way to run DEV profile, is configuring it in the Intellij IDE
 - Environment Variables: `SPRING_PROFILES_ACITVE=dev`
 
@@ -65,6 +66,7 @@ Executing the correct profile.
 
 Connecting to the remote AWS RDS
 - `docker run -it --rm postgres:alpine psql -h <rds-url-db> -U <database-user> -d postgres`
+
 
 
 
