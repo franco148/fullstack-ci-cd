@@ -81,7 +81,7 @@ Deploying APP
 -
 
 
-
+Mvn clean install will execute build-frontend automatically.
 
 
 
