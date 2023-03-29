@@ -2,6 +2,7 @@ package com.fral.fullstackcicd.service;
 
 import com.fral.fullstackcicd.domain.Gender;
 import com.fral.fullstackcicd.domain.Student;
+import com.fral.fullstackcicd.exception.BadRequestException;
 import com.fral.fullstackcicd.repository.StudentRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +15,10 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -64,6 +69,26 @@ class StudentServiceTest {
         Student capturedStudent = captor.getValue();
 
         assertThat(capturedStudent).isEqualTo(student);
+    }
+
+    @Test
+    void willThrowWhenEmailIsTaken() {
+        // given
+        Student student = new Student();
+        student.setName("Franco Arratia");
+        student.setEmail("franco.arratia@localhost.com");
+        student.setGender(Gender.MALE);
+
+        given(studentRepository.existsByEmail(student.getEmail()))
+                .willReturn(true);
+
+        // when
+        // then
+        assertThatThrownBy(() -> underTest.addStudent(student))
+                .isInstanceOf(BadRequestException.class)
+                .hasMessage("The student cannot be stored. The email= " + student.getEmail() + " is already taken.");
+
+        verify(studentRepository, never()).save(any());
     }
 
     @Test
