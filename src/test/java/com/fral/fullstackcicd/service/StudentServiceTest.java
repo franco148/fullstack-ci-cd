@@ -3,6 +3,7 @@ package com.fral.fullstackcicd.service;
 import com.fral.fullstackcicd.domain.Gender;
 import com.fral.fullstackcicd.domain.Student;
 import com.fral.fullstackcicd.exception.BadRequestException;
+import com.fral.fullstackcicd.exception.NotFoundException;
 import com.fral.fullstackcicd.repository.StudentRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -92,7 +94,31 @@ class StudentServiceTest {
     }
 
     @Test
-    @Disabled
-    void deleteStudent() {
+    void canDeleteStudent() {
+        // given
+        Long studentId = 1000L;
+
+        given(studentRepository.existsById(studentId))
+                .willReturn(true);
+
+        // when
+        underTest.deleteStudent(studentId);
+
+        // then
+        verify(studentRepository).deleteById(studentId);
+    }
+
+    @Test
+    void willThrowWhenStudentDoesNotExist() {
+        // given
+        Long studentId = 10001L;
+
+        // when
+        // then
+        assertThatThrownBy(() -> underTest.deleteStudent(studentId))
+                .isInstanceOf(NotFoundException.class)
+                .hasMessage("Student with id " + studentId + " does not exist. Operation can not be completed");
+
+        verify(studentRepository, never()).deleteById(anyLong());
     }
 }
