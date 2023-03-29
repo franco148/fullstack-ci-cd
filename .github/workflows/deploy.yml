@@ -18,8 +18,8 @@ env:
   DOCKER_HUB_USERNAME: franco148
   # AWS & Elastic Bean Stalk
   AWS_REGION: sa-east-1
-  EB_ENVIRONMENT_NAME: Fullstackcicdapp-env
-  EB_APPLICATION_NAME: fullstack-ci-cd-app
+  EB_ENVIRONMENT_NAME: aws-learning-v2
+  EB_APPLICATION_NAME: spring-fullstack-v2
   EB_DEPLOYMENT_PACKAGE: elasticbeanstalk/docker-compose.yml
 
 jobs:
@@ -109,7 +109,7 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-          text: ':tada: :arrow_right: fullstackcicdapp-env.eba-y3t3wftb.sa-east-1.elasticbeanstalk.com'
+          text: ':tada: :arrow_right: http://spring-fullstack-app.sa-east-1.elasticbeanstalk.com'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
